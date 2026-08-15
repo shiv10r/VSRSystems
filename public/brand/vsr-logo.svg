@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 56" role="img" aria-labelledby="title">
+  <title id="title">VSR Systems</title>
+  <defs><linearGradient id="g" x1="4" y1="5" x2="50" y2="51" gradientUnits="userSpaceOnUse"><stop stop-color="#37d9f3"/><stop offset=".5" stop-color="#8b6df6"/><stop offset="1" stop-color="#ed5fa9"/></linearGradient></defs>
+  <path d="M5 9h10l12 29 7-16h10L32 48h-9L5 9Z" fill="url(#g)"/>
+  <path d="M32 7h18L38 19H28L32 7Z" fill="#f7f7fb"/>
+  <text x="64" y="27" fill="#f7f7fb" font-family="Segoe UI, sans-serif" font-size="22" font-weight="650" letter-spacing="-.5">VSR Systems</text>
+  <text x="65" y="43" fill="#8e8e9e" font-family="Cascadia Code, monospace" font-size="8" letter-spacing="1.8">BUILD / AUTOMATE / SCALE</text>
+</svg>
