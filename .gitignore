@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.codegraph/
+.omo/
+*.local
+*.log
+.DS_Store
