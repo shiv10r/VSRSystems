@@ -891,7 +891,7 @@ Expected: all pass. Also run `git status` and confirm only the five commits from
 
 - [ ] **Step 2: Sanity-check animation preservation**
 
-`git diff a21f96b..HEAD -- src/styles/motion.css` — expect **no changes** (motion.css must be untouched). Also confirm `Hero.tsx`, `MilestonesStory.tsx`, `TiltCard.tsx`, `SectionHeading.tsx`, `Reveal.tsx` are unmodified: `git diff --name-only a21f96b..HEAD`.
+`git diff 5718083..HEAD -- src/styles/motion.css` — expect **no changes** (motion.css must be untouched by the chart-forward tasks; 5718083 is the pre-task baseline commit). Also confirm `Hero.tsx`, `MilestonesStory.tsx`, `TiltCard.tsx`, `SectionHeading.tsx`, `Reveal.tsx` are unmodified by these tasks: `git diff --name-only 5718083..HEAD`.
 
 - [ ] **Step 3: Push**
 
