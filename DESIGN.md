@@ -83,6 +83,20 @@ The accent ramp is cyan to violet to magenta. It is reserved for focus, primary 
 ### Reveal
 - One-time opacity and translate reveal. Reduced motion renders immediately.
 
+### MotionSection
+- Shared section choreography with `rise`, `split`, `scale`, and `draw` variants.
+- Coordinates heading, content, and one section-specific signal mechanism through viewport entry or scroll progress.
+- All content remains rendered and readable before JavaScript enhancement and under reduced motion.
+
+### SignalPath
+- Reusable SVG path with a drawn line, traveling packet, and optional node pulse.
+- Used to communicate delivery flow, service relationships, project progression, or operational feedback.
+- Each section supplies its own geometry and labels; the mechanism is shared without cloning one composition.
+
+### RouteTransition
+- Crossfades and translates route content on location change while preserving keyboard focus and scroll restoration.
+- Route heroes pair the transition with a restrained moving signal field.
+
 ### TechnologyMarquee
 - Two duplicated rows for continuity, pause on hover/focus, and static wrapped list under reduced motion.
 
@@ -101,6 +115,10 @@ The accent ramp is cyan to violet to magenta. It is reserved for focus, primary 
 - Emphasis: 620ms cubic-bezier(.16,1,.3,1) for route/section entry.
 - Spring: stiffness 260, damping 28, mass .8 for spatial Framer Motion transitions.
 - Ambient system loops: 4.8-8s ease-in-out for telemetry pulses; 18-24s linear for orbital rotation.
+- Cinematic section motion uses one prominent ambient mechanism per major section, scroll-linked construction for information flow, and spring feedback for interactive controls.
+- Section mechanisms include signal packets, path drawing, node pulses, scanning light, orbital movement, and marquees; adjacent sections must not repeat the same composition.
+- Scroll-linked movement uses Motion values and GPU-composited transforms rather than manual scroll listeners.
+- Persistent loops remain limited to one primary visual system per section and pause when the section is outside the viewport.
 - Animate only transform, opacity, and short filter fades. No layout-property animation.
 - Reduced motion removes continuous orbit/marquee movement, scroll reveal displacement, and smooth scrolling.
 
