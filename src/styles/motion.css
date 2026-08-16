@@ -1,0 +1,196 @@
+.site-motion {
+  position: fixed;
+  z-index: 0;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.44;
+}
+.site-motion svg {
+  width: 100%;
+  height: 100%;
+}
+.site-motion__track {
+  fill: none;
+  stroke: rgba(139, 109, 246, 0.16);
+  stroke-width: 1;
+  stroke-dasharray: 5 14;
+}
+.site-motion__packet {
+  fill: var(--cyan);
+  filter: drop-shadow(0 0 10px var(--cyan));
+}
+.site-shell > main,
+.site-footer {
+  position: relative;
+  z-index: 1;
+}
+.section {
+  isolation: isolate;
+  overflow: hidden;
+}
+.section::before,
+.section::after {
+  position: absolute;
+  z-index: -1;
+  content: "";
+  pointer-events: none;
+}
+.section::before {
+  width: min(54vw, 760px);
+  aspect-ratio: 1;
+  top: 8%;
+  right: -18%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(55, 217, 243, 0.12),
+    rgba(139, 109, 246, 0.05) 38%,
+    transparent 70%
+  );
+  filter: blur(28px);
+  animation: section-orbit 8s ease-in-out infinite alternate;
+}
+.section::after {
+  top: 0;
+  bottom: 0;
+  left: -30%;
+  width: 22%;
+  background: linear-gradient(90deg, transparent, rgba(55, 217, 243, 0.08), transparent);
+  transform: skewX(-18deg);
+  animation: section-scan 7s ease-in-out infinite;
+}
+.section:nth-of-type(even)::before {
+  right: auto;
+  left: -18%;
+  background: radial-gradient(
+    circle,
+    rgba(237, 95, 169, 0.09),
+    rgba(139, 109, 246, 0.06) 40%,
+    transparent 70%
+  );
+  animation-delay: -3s;
+}
+.section-heading h2 {
+  background: linear-gradient(100deg, var(--text) 20%, #b9f6ff 48%, var(--text) 76%);
+  background-size: 220% auto;
+  color: transparent;
+  background-clip: text;
+  animation: heading-signal 5s linear infinite;
+}
+.route-hero__signals {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.58;
+}
+.route-hero__signals path {
+  fill: none;
+  stroke: rgba(139, 109, 246, 0.32);
+  stroke-width: 1.5;
+  stroke-dasharray: 8 14;
+  animation: signal-dash 14s linear infinite;
+}
+.route-hero__signals circle {
+  fill: var(--cyan);
+  filter: drop-shadow(0 0 14px var(--cyan));
+}
+.content-card,
+.stage-offering-card,
+.operating-card,
+.metric-card,
+.differentiator-card,
+.insight-card,
+.technology-group,
+.project-card {
+  position: relative;
+  overflow: hidden;
+}
+.content-card::before,
+.stage-offering-card::before,
+.operating-card::before,
+.metric-card::before,
+.differentiator-card::before,
+.insight-card::before,
+.technology-group::before,
+.project-card::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  background: linear-gradient(115deg, transparent 25%, rgba(55, 217, 243, 0.1), transparent 66%);
+  transform: translateX(-120%);
+  animation: card-signal 6.5s ease-in-out infinite;
+}
+.card-grid > :nth-child(2n) article::before,
+.operating-model__grid > :nth-child(2n) article::before,
+.insight-grid > :nth-child(2n) article::before {
+  animation-delay: -3.2s;
+}
+@keyframes section-orbit {
+  from {
+    transform: translate3d(-8%, -5%, 0) scale(0.9);
+    opacity: 0.55;
+  }
+  to {
+    transform: translate3d(10%, 8%, 0) scale(1.12);
+    opacity: 1;
+  }
+}
+@keyframes section-scan {
+  0%,
+  16% {
+    transform: translateX(0) skewX(-18deg);
+    opacity: 0;
+  }
+  38%,
+  66% {
+    opacity: 1;
+  }
+  84%,
+  100% {
+    transform: translateX(680%) skewX(-18deg);
+    opacity: 0;
+  }
+}
+@keyframes heading-signal {
+  to {
+    background-position: -220% center;
+  }
+}
+@keyframes signal-dash {
+  to {
+    stroke-dashoffset: -220;
+  }
+}
+@keyframes card-signal {
+  0%,
+  58% {
+    transform: translateX(-120%);
+    opacity: 0;
+  }
+  72% {
+    opacity: 1;
+  }
+  88%,
+  100% {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .section::before,
+  .section::after,
+  .section-heading h2,
+  .route-hero__signals path,
+  .content-card::before,
+  .stage-offering-card::before,
+  .operating-card::before,
+  .metric-card::before,
+  .differentiator-card::before,
+  .insight-card::before,
+  .technology-group::before,
+  .project-card::before {
+    animation: none;
+  }
+}

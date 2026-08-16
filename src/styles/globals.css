@@ -4,6 +4,7 @@
 @import "./operations.css";
 @import "./pages.css";
 @import "./story.css";
+@import "./motion.css";
 
 :root {
   color-scheme: dark;

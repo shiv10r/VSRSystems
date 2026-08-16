@@ -1,12 +1,15 @@
 import { MessageCircle } from "lucide-react"
-import { Link, Outlet, useLocation } from "react-router-dom"
+import { Link, useLocation, useOutlet } from "react-router-dom"
 import { Footer } from "./Footer"
 import { Header } from "./Header"
 import { PageProgress } from "./PageProgress"
+import { RouteTransition } from "./RouteTransition"
 import { ScrollToTop } from "./ScrollToTop"
+import { SiteMotionLayer } from "./SiteMotionLayer"
 
 export const SiteLayout = () => {
   const location = useLocation()
+  const outlet = useOutlet()
 
   return (
     <div className="site-shell">
@@ -14,10 +17,11 @@ export const SiteLayout = () => {
         Skip to content
       </a>
       <PageProgress />
+      <SiteMotionLayer />
       <ScrollToTop key={location.pathname} />
       <Header />
       <main id="main-content">
-        <Outlet />
+        <RouteTransition routeKey={location.pathname}>{outlet}</RouteTransition>
       </main>
       <Footer />
       <Link
