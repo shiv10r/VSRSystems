@@ -100,6 +100,7 @@ The accent ramp is cyan to violet to magenta. It is reserved for focus, primary 
 - Standard: 240ms cubic-bezier(.2,.8,.2,1) for menus and state changes.
 - Emphasis: 620ms cubic-bezier(.16,1,.3,1) for route/section entry.
 - Spring: stiffness 260, damping 28, mass .8 for spatial Framer Motion transitions.
+- Ambient system loops: 4.8-8s ease-in-out for telemetry pulses; 18-24s linear for orbital rotation.
 - Animate only transform, opacity, and short filter fades. No layout-property animation.
 - Reduced motion removes continuous orbit/marquee movement, scroll reveal displacement, and smooth scrolling.
 

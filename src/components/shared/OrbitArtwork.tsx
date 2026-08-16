@@ -7,10 +7,19 @@ export const OrbitArtwork = () => {
     repeat: reduceMotion ? 0 : Number.POSITIVE_INFINITY,
     ease: "linear" as const,
   }
+  const ambientTransition = {
+    duration: 6,
+    repeat: reduceMotion ? 0 : Number.POSITIVE_INFINITY,
+    ease: "easeInOut" as const,
+  }
 
   return (
     <div className="orbit" aria-hidden="true">
-      <div className="orbit__halo" />
+      <motion.div
+        className="orbit__halo"
+        animate={reduceMotion ? false : { opacity: [0.58, 0.82, 0.58], scale: [0.96, 1.04, 0.96] }}
+        transition={ambientTransition}
+      />
       <motion.div
         className="orbit__ring orbit__ring--outer"
         animate={{ rotate: reduceMotion ? 0 : 360 }}
@@ -26,10 +35,14 @@ export const OrbitArtwork = () => {
       >
         <span className="orbit__node orbit__node--violet" />
       </motion.div>
-      <div className="orbit__core">
+      <motion.div
+        className="orbit__core"
+        animate={reduceMotion ? false : { y: [0, -6, 0], rotate: [4, 2.5, 4] }}
+        transition={{ ...ambientTransition, duration: 4.8 }}
+      >
         <img src="/brand/vsr-mark.svg" alt="" width="72" height="72" />
         <span>INTELLIGENT SYSTEMS</span>
-      </div>
+      </motion.div>
       <span className="orbit__label orbit__label--one">SOFTWARE</span>
       <span className="orbit__label orbit__label--two">CLOUD</span>
       <span className="orbit__label orbit__label--three">DATA</span>
