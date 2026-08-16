@@ -36,7 +36,7 @@
   list-style: none;
 }
 .operating-card {
-  min-height: 540px;
+  min-height: 420px;
   height: 100%;
   padding: 28px;
   border: 1px solid var(--border);
@@ -59,26 +59,34 @@
   margin-bottom: 0;
   font-size: 1.65rem;
 }
-.operating-card dl {
-  display: grid;
-  gap: 24px;
-  margin: 0;
+.operating-card__flow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 28px;
+  color: var(--text-muted);
+  font-size: 0.92rem;
 }
-.operating-card dt,
-.operating-card__controls > p {
-  margin-bottom: 7px;
+.operating-card__flow span:first-child::before {
+  content: "IN  ";
   color: var(--text-quiet);
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: 0.66rem;
   letter-spacing: 0.1em;
-  text-transform: uppercase;
 }
-.operating-card dd {
-  margin: 0;
-  color: var(--text-muted);
+.operating-card__flow span:last-child::before {
+  content: "OUT ";
+  color: var(--text-quiet);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.1em;
+}
+.operating-card__flow svg {
+  flex: 0 0 auto;
+  color: var(--cyan);
 }
 .operating-card__controls {
-  margin-top: 28px;
+  margin: 0;
   padding-top: 22px;
   border-top: 1px solid var(--border);
 }
@@ -104,7 +112,7 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .operating-card {
-    min-height: 490px;
+    min-height: 400px;
   }
 }
 

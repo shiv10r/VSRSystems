@@ -1,4 +1,5 @@
 import { motion, useReducedMotion } from "framer-motion"
+import { ArrowRight } from "lucide-react"
 import { operatingModel } from "../../data/story"
 import { Reveal } from "../shared/Reveal"
 import { SectionHeading } from "../shared/SectionHeading"
@@ -12,7 +13,6 @@ export const OperatingModel = () => {
         <SectionHeading
           eyebrow="Operating model"
           title="From business context to production learning"
-          description="Each phase has a clear input, a concrete output and visible controls. This keeps engineering activity connected to business decisions."
         />
         <div className="operating-flow" aria-hidden="true">
           <motion.span
@@ -48,24 +48,16 @@ export const OperatingModel = () => {
                     <span>{step.phase}</span>
                     <h3>{step.title}</h3>
                   </div>
-                  <dl>
-                    <div>
-                      <dt>Input</dt>
-                      <dd>{step.input}</dd>
-                    </div>
-                    <div>
-                      <dt>Output</dt>
-                      <dd>{step.output}</dd>
-                    </div>
-                  </dl>
-                  <div className="operating-card__controls">
-                    <p>Control signals</p>
-                    <ul>
-                      {step.controls.map((control) => (
-                        <li key={control}>{control}</li>
-                      ))}
-                    </ul>
-                  </div>
+                  <p className="operating-card__flow">
+                    <span>{step.input}</span>
+                    <ArrowRight aria-hidden="true" size={14} />
+                    <span>{step.output}</span>
+                  </p>
+                  <ul className="operating-card__controls">
+                    {step.controls.map((control) => (
+                      <li key={control}>{control}</li>
+                    ))}
+                  </ul>
                 </article>
               </Reveal>
             </li>
