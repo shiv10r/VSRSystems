@@ -122,7 +122,7 @@
 }
 .story-panel {
   position: relative;
-  min-height: 590px;
+  min-height: 420px;
   display: flex;
   align-items: flex-end;
   overflow: hidden;
@@ -285,13 +285,13 @@
   border: 1px solid var(--border);
 }
 .differentiator-card {
-  min-height: 300px;
-  padding: 32px;
+  min-height: 200px;
+  padding: 26px;
   background: var(--canvas-raised);
 }
 .differentiator-card > span {
   display: block;
-  margin-bottom: 100px;
+  margin-bottom: 56px;
   color: var(--text-quiet);
   font-family: var(--font-mono);
   font-size: 0.7rem;
@@ -347,18 +347,18 @@
 }
 .process-stepper__step {
   position: relative;
-  min-height: 260px;
-  padding: 30px;
+  min-height: 200px;
+  padding: 26px;
   border: 1px solid var(--border);
   border-radius: 18px;
   background: linear-gradient(145deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.012));
 }
 .process-stepper__node {
-  width: 52px;
-  height: 52px;
+  width: 48px;
+  height: 48px;
   display: grid;
   place-items: center;
-  margin-bottom: 40px;
+  margin-bottom: 28px;
   border: 1px solid rgba(55, 217, 243, 0.35);
   border-radius: 14px;
   color: var(--cyan);
@@ -404,12 +404,12 @@
 }
 .project-feed-card {
   position: relative;
-  min-height: 440px;
+  min-height: 340px;
   height: 100%;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  padding: 30px;
+  padding: 26px;
   border: 1px solid var(--border);
   border-radius: 20px;
   background:
@@ -442,7 +442,7 @@
   display: flex;
   justify-content: space-between;
   gap: 16px;
-  margin-bottom: 64px;
+  margin-bottom: 44px;
   color: var(--cyan);
   font-family: var(--font-mono);
   font-size: 0.69rem;
@@ -489,7 +489,7 @@
   transform: translate(3px, -3px);
 }
 .project-feed-item--featured .project-feed-card {
-  min-height: 360px;
+  min-height: 300px;
   display: grid;
   grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
   column-gap: clamp(40px, 8vw, 120px);
@@ -503,10 +503,10 @@
   grid-row: 1 / span 2;
 }
 .insight-card {
-  min-height: 390px;
+  min-height: 300px;
   display: flex;
   flex-direction: column;
-  padding: 30px;
+  padding: 26px;
   border: 1px solid var(--border);
   border-radius: 20px;
   background: var(--canvas-raised);
@@ -581,14 +581,14 @@
   gap: 14px;
 }
 .delivery-grid article {
-  min-height: 210px;
-  padding: 28px;
+  min-height: 170px;
+  padding: 24px;
   border: 1px solid var(--border);
   border-radius: 18px;
   background: var(--surface);
 }
 .delivery-grid__icon {
-  margin-bottom: 52px;
+  margin-bottom: 30px;
   color: var(--cyan);
 }
 .delivery-grid h3 {
@@ -660,8 +660,8 @@
   gap: 18px;
 }
 .industry-page-grid article {
-  min-height: 360px;
-  padding: 34px;
+  min-height: 260px;
+  padding: 28px;
   border: 1px solid var(--border);
   border-radius: 20px;
   background: var(--surface);
@@ -673,7 +673,7 @@
   font-size: 0.7rem;
 }
 .industry-page-grid h2 {
-  margin-top: 110px;
+  margin-top: 64px;
   font-size: 2rem;
 }
 .industry-page-grid a {
@@ -906,7 +906,8 @@
     margin-top: -20px;
   }
   .story-panel {
-    min-height: 650px;
+    min-height: 430px;
+    padding: clamp(28px, 8vw, 44px);
   }
   .story-panel__signal {
     inset: 8% 2% 42% 20%;
@@ -916,6 +917,12 @@
   .delivery-grid,
   .industry-page-grid {
     grid-template-columns: 1fr;
+  }
+  .differentiator-card,
+  .insight-card,
+  .delivery-grid article,
+  .industry-page-grid article {
+    min-height: auto;
   }
   .industry-card,
   .service-index__item {
@@ -935,18 +942,22 @@
   .process-stepper {
     grid-template-columns: 1fr;
   }
+  .process-stepper__step {
+    min-height: auto;
+  }
   .technology-use {
     gap: 52px;
   }
   .project-feed-item {
     grid-column: 1 / -1;
   }
+  .project-feed-card,
   .project-feed-item--featured .project-feed-card {
-    min-height: 440px;
+    min-height: auto;
     display: flex;
   }
   .project-feed-card__meta {
-    margin-bottom: 44px;
+    margin-bottom: 32px;
   }
   .not-found > div > div {
     flex-direction: column;

@@ -147,8 +147,8 @@
 }
 .content-card {
   position: relative;
-  min-height: 260px;
-  padding: 32px;
+  min-height: 210px;
+  padding: 28px;
   overflow: hidden;
   border: 1px solid var(--border);
   border-radius: 20px;
@@ -193,11 +193,11 @@
   opacity: 0.22;
 }
 .content-card__icon {
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
   display: grid;
   place-items: center;
-  margin-bottom: 58px;
+  margin-bottom: 36px;
   border: 1px solid var(--border);
   border-radius: 13px;
   background: rgba(255, 255, 255, 0.045);
@@ -230,14 +230,14 @@
   border-left: 1px solid var(--border);
 }
 .metric-card {
-  min-height: 240px;
-  padding: 30px;
+  min-height: 180px;
+  padding: 26px;
   border-right: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
 }
 .metric-card__index {
   display: block;
-  margin-bottom: 56px;
+  margin-bottom: 32px;
   color: var(--cyan);
   font-family: var(--font-mono);
   font-size: 0.72rem;
@@ -350,11 +350,15 @@
     grid-template-columns: 1fr;
   }
   .content-card {
-    min-height: 240px;
-    padding: 26px;
+    min-height: auto;
+    padding: 24px;
   }
   .content-card__icon {
-    margin-bottom: 44px;
+    margin-bottom: 28px;
+  }
+  .metric-card {
+    min-height: auto;
+    padding: 22px;
   }
   .cta-panel__actions {
     flex-direction: column;
