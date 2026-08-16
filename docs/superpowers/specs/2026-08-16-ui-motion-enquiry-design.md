@@ -10,6 +10,9 @@ Improve the site's visual credibility and interaction quality, make animations r
 - Make the interface feel more realistic through purposeful system visuals, depth, and responsive states rather than unsupported claims or decorative clutter.
 - Use Netlify Forms as the only enquiry service. Do not add a custom backend, database, CRM, or paid email provider.
 - Store verified submissions in the Netlify Forms dashboard without paid email or webhook notifications.
+- Present `https://vsrsystems1.netlify.app/` as a current VSR-owned website project.
+- Label all service-based project scenarios as representative solutions; do not present them as completed client work or testimonials.
+- Harden the current Netlify website with restrictive browser security headers and bounded contact inputs.
 - Open `/contact` in the same browser tab from every "Let's Talk" action.
 - Accept any non-empty challenge message. Do not enforce the current 20-character minimum.
 - Respect `prefers-reduced-motion` and keep mobile motion lightweight.
@@ -27,6 +30,36 @@ Improve the site's visual credibility and interaction quality, make animations r
 - `public/_redirects` already contains the SPA fallback `/* /index.html 200`; the form flow should not depend on a redirect after submission.
 
 ## Implementation TODO
+
+### P0: Harden the Current Website
+
+- [ ] Add a restrictive Content Security Policy that permits only same-origin application resources and form submissions.
+- [ ] Add HSTS, cross-origin isolation headers, MIME-sniffing protection, frame protection, referrer policy, permissions policy, and cross-domain policy restrictions.
+- [ ] Keep Framer Motion compatible by allowing inline styles while continuing to block inline scripts.
+- [ ] Add schema and HTML length limits for every free-text contact field.
+- [ ] Preserve Netlify's honeypot field and cap its accepted client-side length.
+
+Acceptance criteria:
+
+- The production deployment sends the configured security headers on document routes.
+- The CSP blocks third-party scripts, objects, framing, off-origin form posts, and undeclared network connections.
+- Contact fields reject oversized values before submission.
+- The site builds without adding a security dependency or exposing a secret.
+
+### P1: Add Current Project and Solution Feed
+
+- [ ] Add the VSR Systems corporate website as a current VSR-owned live project linked to `https://vsrsystems1.netlify.app/`.
+- [ ] Add representative software, AI, cloud, data, cybersecurity, and consulting solution cards linked to the matching service pages on the same Netlify site.
+- [ ] Label every non-live scenario as a representative solution rather than a testimonial or completed client project.
+- [ ] Show the business need and delivery focus for each card without invented clients, quotes, metrics, or outcomes.
+- [ ] Add responsive desktop, tablet, and mobile layouts using the existing design system and reveal behavior.
+
+Acceptance criteria:
+
+- The current project card opens the supplied VSR Systems website URL.
+- Every representative solution links to its matching service offering.
+- Visitors cannot reasonably mistake representative scenarios for verified testimonials.
+- Cards remain readable and usable without hover or animation.
 
 ### P0: Repair Enquiry Submission
 
@@ -137,12 +170,15 @@ Acceptance criteria:
 - [ ] Run `npm run build` and confirm Netlify deployment artifacts are generated successfully.
 - [ ] Confirm `dist/_redirects` contains the SPA fallback after the build.
 - [ ] Confirm the built HTML contains the Netlify-detectable `contact` form and matching field names.
+- [ ] Confirm `netlify.toml` contains the expected CSP, HSTS, cross-origin, framing, MIME, referrer, permissions, and form-action controls.
 
 ## Deployment Verification for the Site Owner
 
 - [ ] Deploy the production build to Netlify.
 - [ ] Check layout and animation behavior on desktop and at 320 px, 375 px, and 430 px mobile widths.
 - [ ] Check the deployed site with reduced motion enabled.
+- [ ] Open the current VSR website project and every representative service link from the project feed.
+- [ ] Inspect production response headers and confirm the security policy is active without blocking the application.
 - [ ] Submit a valid enquiry and confirm the page does not navigate or show a 404.
 - [ ] Confirm the enquiry appears in Netlify Forms.
 - [ ] Simulate or observe a failed submission and confirm entered values remain available for retry.
