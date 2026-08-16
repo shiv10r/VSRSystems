@@ -33,6 +33,14 @@ export type TechnologyGroup = {
   readonly technologies: readonly string[]
 }
 
+export type OperatingStep = {
+  readonly phase: string
+  readonly title: string
+  readonly input: string
+  readonly output: string
+  readonly controls: readonly string[]
+}
+
 export const milestones = [
   {
     value: "06",
@@ -188,3 +196,34 @@ export const technologyLandscape = [
     ],
   },
 ] satisfies readonly TechnologyGroup[]
+
+export const operatingModel = [
+  {
+    phase: "01",
+    title: "Discover",
+    input: "Business goals, users, current systems, constraints and risk appetite.",
+    output: "Prioritized scope, opportunity map, assumptions and delivery risks.",
+    controls: ["Stakeholder alignment", "Feasibility review", "Decision checkpoints"],
+  },
+  {
+    phase: "02",
+    title: "Design",
+    input: "Validated priorities, data boundaries, integration needs and operating context.",
+    output: "Solution architecture, experience flows, delivery plan and security model.",
+    controls: ["Architecture review", "Threat modelling", "Acceptance criteria"],
+  },
+  {
+    phase: "03",
+    title: "Build",
+    input: "Approved architecture, sequenced outcomes and a ready delivery foundation.",
+    output: "Working increments, automated delivery, telemetry and production documentation.",
+    controls: ["Code quality gates", "Release controls", "Security checks"],
+  },
+  {
+    phase: "04",
+    title: "Operate",
+    input: "Production signals, user feedback, service health and evolving business priorities.",
+    output: "Reliability improvements, optimized cost, risk reduction and product learning.",
+    controls: ["Observability", "Incident learning", "Continuous improvement"],
+  },
+] satisfies readonly OperatingStep[]
