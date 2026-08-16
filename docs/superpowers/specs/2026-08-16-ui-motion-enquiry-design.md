@@ -15,6 +15,8 @@ Improve the site's visual credibility and interaction quality, make animations r
 - Harden the current Netlify website with restrictive browser security headers and bounded contact inputs.
 - Adapt the sample site's storytelling structure with truthful VSR metrics, general-business offerings, engagement models, strategic enablers, and verified technology capabilities.
 - Do not copy Quadrafort customer counts, team size, certifications, GCC claims, talent-pool claims, office locations, vendor relationships, or client results.
+- Extend the connected-system motion language across routes and information sections while keeping continuous animation limited and reduced-motion support complete.
+- Do not show a cookie consent banner while the site has no non-essential cookie-setting code; add consent before introducing analytics, advertising, or preference cookies.
 - Open `/contact` in the same browser tab from every "Let's Talk" action.
 - Accept any non-empty challenge message. Do not enforce the current 20-character minimum.
 - Respect `prefers-reduced-motion` and keep mobile motion lightweight.
@@ -101,6 +103,44 @@ Acceptance criteria:
 
 - No unsupported Salesforce, SAP, ServiceNow, Oracle, Freshworks, Monday.com, Liferay, CMS, QA-tool, or security-vendor capability is introduced.
 - Technology groups are responsive, keyboard-readable, and visually consistent with the VSR design system.
+
+### P1: Extend Meaningful Motion Across the Site
+
+- [ ] Add a reduced-motion-aware page progress signal on every route.
+- [ ] Add staggered entrance motion to industry rows and insight cards that previously appeared without sequencing.
+- [ ] Add directional hover and focus feedback only to elements that navigate or otherwise respond to interaction.
+- [ ] Keep decorative sections static unless motion communicates system flow, progress, hierarchy, or interaction state.
+- [ ] Preserve transform/opacity-only movement outside the existing SVG/network mechanisms.
+
+Acceptance criteria:
+
+- Every route receives progress feedback without blocking navigation or content.
+- Interactive motion remains interruptible and keyboard-visible.
+- Reduced-motion users receive the complete interface without progress or continuous animation.
+- Non-interactive content does not use misleading hover animation.
+
+### P1: Add Detailed Operating Model
+
+- [ ] Add Discover, Design, Build, and Operate phases with concrete input, output, and control-signal information.
+- [ ] Animate the operating flow once on viewport entry without scroll-jacking or continuous distraction.
+- [ ] Use operational details already supported by VSR's service catalogue: architecture review, threat modelling, quality gates, release controls, observability, incident learning, and continuous improvement.
+- [ ] Keep the flow responsive as four columns on wide screens, two on tablet, and one on mobile.
+
+Acceptance criteria:
+
+- Visitors can understand what enters and leaves each delivery phase.
+- Security, quality, and reliability controls are visible as part of delivery rather than unsupported certification claims.
+- The full operating model remains readable with CSS or animation disabled.
+
+### P2: Cookie Consent Decision
+
+- [ ] Do not add a consent banner while source review confirms no analytics, advertising, authentication, preference storage, or direct cookie-setting code.
+- [ ] Reassess consent requirements before enabling any non-essential cookie or third-party tracking service.
+
+Acceptance criteria:
+
+- The website does not ask visitors to consent to cookies it does not set.
+- Any future non-essential cookie is blocked until the applicable consent choice is recorded.
 
 ### P0: Repair Enquiry Submission
 
