@@ -81,13 +81,36 @@
   background: linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(9, 9, 13, 0.7));
   box-shadow: var(--shadow);
   transform: rotate(4deg);
+  overflow: hidden;
+}
+.orbit__core::before {
+  content: "";
+  position: absolute;
+  inset: -60% -20%;
+  background: linear-gradient(
+    180deg,
+    transparent 35%,
+    rgba(55, 217, 243, 0.18) 50%,
+    transparent 65%
+  );
+  opacity: 0.65;
+  transform: translateY(-45%);
+  animation: core-scan 6s ease-in-out infinite;
+}
+@keyframes core-scan {
+  50% {
+    transform: translateY(45%);
+  }
 }
 .orbit__core img {
+  position: relative;
+  z-index: 1;
   width: 46%;
 }
 .orbit__core span {
   position: absolute;
   bottom: 12%;
+  z-index: 1;
   font-family: var(--font-mono);
   font-size: clamp(0.42rem, 0.7vw, 0.62rem);
   letter-spacing: 0.12em;
@@ -134,6 +157,19 @@
     transform 240ms cubic-bezier(0.2, 0.8, 0.2, 1),
     border-color 240ms ease,
     background-color 240ms ease;
+}
+.content-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    130deg,
+    rgba(255, 255, 255, 0.07),
+    transparent 28% 74%,
+    rgba(75, 125, 248, 0.06)
+  );
+  pointer-events: none;
 }
 .content-card::after {
   content: "";
