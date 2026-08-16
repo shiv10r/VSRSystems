@@ -24,10 +24,14 @@ export const Reveal = ({ children, className = "", delay = 0 }: RevealProps) => 
   return (
     <motion.div
       className={className}
-      initial={reduceMotion ? false : { opacity: 0, y: compactMotion ? 14 : 28 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={
+        reduceMotion
+          ? false
+          : { opacity: 0, y: compactMotion ? 24 : 58, scale: 0.96, filter: "blur(10px)" }
+      }
+      whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
       viewport={{ once: true, amount: compactMotion ? 0.04 : 0.16 }}
-      transition={{ duration: compactMotion ? 0.42 : 0.62, delay, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: compactMotion ? 0.56 : 0.82, delay, ease: [0.16, 1, 0.3, 1] }}
     >
       {children}
     </motion.div>

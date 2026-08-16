@@ -21,6 +21,23 @@ export const OperatingModel = () => {
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: reduceMotion ? 0 : 1.1, ease: [0.16, 1, 0.3, 1] }}
           />
+          {reduceMotion ? null : (
+            <>
+              <motion.i
+                animate={{ x: ["0%", "900%"], opacity: [0, 1, 1, 0] }}
+                transition={{ duration: 3.4, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+              />
+              <motion.i
+                animate={{ x: ["0%", "900%"], opacity: [0, 1, 1, 0] }}
+                transition={{
+                  duration: 3.4,
+                  delay: 1.7,
+                  repeat: Number.POSITIVE_INFINITY,
+                  ease: "linear",
+                }}
+              />
+            </>
+          )}
         </div>
         <ol className="operating-model__grid">
           {operatingModel.map((step, index) => (
