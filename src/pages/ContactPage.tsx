@@ -10,15 +10,19 @@ import { services } from "../data/services"
 import { siteConfig } from "../data/site"
 
 const contactSchema = z.object({
-  fullName: z.string().trim().min(2, "Enter your full name"),
-  email: z.string().trim().email("Enter a valid work email"),
-  company: z.string().trim(),
-  phone: z.string().trim(),
+  fullName: z.string().trim().min(2, "Enter your full name").max(100, "Name is too long"),
+  email: z.string().trim().max(254, "Email is too long").email("Enter a valid work email"),
+  company: z.string().trim().max(150, "Company name is too long"),
+  phone: z.string().trim().max(32, "Phone number is too long"),
   service: z.string().min(1, "Select a service"),
   budget: z.string(),
-  message: z.string().trim().min(1, "Tell us about the challenge"),
+  message: z
+    .string()
+    .trim()
+    .min(1, "Tell us about the challenge")
+    .max(5000, "Message must be 5,000 characters or fewer"),
   consent: z.literal(true, { error: "Confirm that we may respond to your inquiry" }),
-  "bot-field": z.string().optional(),
+  "bot-field": z.string().max(200).optional(),
 })
 
 type ContactFields = z.infer<typeof contactSchema>
@@ -124,14 +128,26 @@ export const ContactPage = () => {
               <input type="hidden" name="form-name" value="contact" />
               <p className="hidden-field">
                 <label>
-                  Do not fill this out: <input {...register("bot-field")} />
+                  Do not fill this out: <input {...register("bot-field")} maxLength={200} />
                 </label>
               </p>
               <Field id="fullName" label="Full name" error={errors.fullName?.message}>
-                <input id="fullName" {...register("fullName")} type="text" autoComplete="name" />
+                <input
+                  id="fullName"
+                  {...register("fullName")}
+                  type="text"
+                  autoComplete="name"
+                  maxLength={100}
+                />
               </Field>
               <Field id="email" label="Work email" error={errors.email?.message}>
-                <input id="email" {...register("email")} type="email" autoComplete="email" />
+                <input
+                  id="email"
+                  {...register("email")}
+                  type="email"
+                  autoComplete="email"
+                  maxLength={254}
+                />
               </Field>
               <div className="form-row">
                 <Field id="company" label="Company" error={errors.company?.message}>
@@ -140,10 +156,17 @@ export const ContactPage = () => {
                     {...register("company")}
                     type="text"
                     autoComplete="organization"
+                    maxLength={150}
                   />
                 </Field>
                 <Field id="phone" label="Phone (optional)" error={errors.phone?.message}>
-                  <input id="phone" {...register("phone")} type="tel" autoComplete="tel" />
+                  <input
+                    id="phone"
+                    {...register("phone")}
+                    type="tel"
+                    autoComplete="tel"
+                    maxLength={32}
+                  />
                 </Field>
               </div>
               <div className="form-row">
@@ -170,7 +193,7 @@ export const ContactPage = () => {
                 </Field>
               </div>
               <Field id="message" label="Message" error={errors.message?.message}>
-                <textarea id="message" {...register("message")} rows={8} />
+                <textarea id="message" {...register("message")} rows={8} maxLength={5000} />
               </Field>
               <label className="consent">
                 <input {...register("consent")} type="checkbox" />
