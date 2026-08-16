@@ -8,6 +8,18 @@
   border-bottom: 1px solid var(--border);
   background: rgba(5, 5, 7, 0.94);
 }
+.page-progress {
+  position: fixed;
+  z-index: 100;
+  top: env(safe-area-inset-top);
+  right: 0;
+  left: 0;
+  height: 2px;
+  background: var(--gradient);
+  box-shadow: 0 0 16px rgba(55, 217, 243, 0.38);
+  transform-origin: left center;
+  pointer-events: none;
+}
 .site-header__inner {
   min-height: 76px;
   display: flex;
