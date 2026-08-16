@@ -87,25 +87,50 @@
 .stage-offerings {
   background: var(--canvas-raised);
 }
-.stage-offerings__grid,
+.stage-offerings__chart,
 .enabler-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
 }
+.stage-offerings__chart {
+  align-items: end;
+}
 .stage-offering-card {
-  min-height: 510px;
+  position: relative;
+  min-height: 470px;
   height: 100%;
   padding: 32px;
+  overflow: hidden;
   border: 1px solid var(--border);
   border-radius: 20px;
   background: var(--surface);
+}
+.stage-offering-card__bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: var(--bar, 6px);
+  background: linear-gradient(180deg, var(--gradient));
+  opacity: 0.55;
+}
+/* Each card sits inside a Reveal motion.div wrapper, so select the wrapper's nth-child,
+   then descend to the card inside. */
+.stage-offerings__chart > :nth-child(1) .stage-offering-card__bar {
+  --bar: 22%;
+}
+.stage-offerings__chart > :nth-child(2) .stage-offering-card__bar {
+  --bar: 42%;
+}
+.stage-offerings__chart > :nth-child(3) .stage-offering-card__bar {
+  --bar: 62%;
 }
 .stage-offering-card__index {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 72px;
+  margin-bottom: 48px;
   color: var(--cyan);
   font-family: var(--font-mono);
   font-size: 0.72rem;
@@ -115,41 +140,73 @@
 .stage-offering-card h3 {
   font-size: clamp(1.55rem, 2.5vw, 2.25rem);
 }
-.stage-offering-card ul {
-  display: grid;
-  gap: 12px;
+.capability-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
   margin: 28px 0 0;
   padding: 0;
   list-style: none;
 }
-.stage-offering-card li {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
+.capability-chips li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 10px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
   color: var(--text-muted);
+  font-size: 0.8rem;
 }
-.stage-offering-card li svg {
+.capability-chips li svg {
   flex: 0 0 auto;
-  margin-top: 5px;
   color: var(--cyan);
 }
 
 .engagement-section {
   background: var(--surface);
 }
-.engagement-grid {
+.engagement-spectrum {
+  position: relative;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  border-top: 1px solid var(--border);
-  border-left: 1px solid var(--border);
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 18px;
+  margin: 0;
+  padding: 44px 0 0;
+  list-style: none;
 }
-.engagement-card {
-  min-height: 230px;
-  padding: 28px;
-  border-right: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
+.engagement-spectrum::before {
+  content: "";
+  position: absolute;
+  top: 21px;
+  right: 4%;
+  left: 4%;
+  height: 1px;
+  background: var(--border);
 }
-.engagement-card > span,
+.engagement-spectrum__item {
+  position: relative;
+  padding-top: 26px;
+}
+.engagement-spectrum__dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--cyan);
+  border-radius: 50%;
+  background: var(--canvas);
+}
+.engagement-spectrum__item h3 {
+  margin-bottom: 6px;
+  font-size: 1rem;
+}
+.engagement-spectrum__item p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
 .enabler-card > span {
   display: block;
   margin-bottom: 52px;
@@ -157,12 +214,6 @@
   font-family: var(--font-mono);
   font-size: 0.72rem;
   letter-spacing: 0.09em;
-}
-.engagement-card h3 {
-  font-size: 1.35rem;
-}
-.engagement-card p {
-  margin-bottom: 0;
 }
 
 .enablers-section {
@@ -230,9 +281,12 @@
   .milestones-story__layout {
     grid-template-columns: 1fr;
   }
-  .stage-offerings__grid,
+  .stage-offerings__chart,
   .enabler-grid {
     grid-template-columns: 1fr;
+  }
+  .engagement-spectrum {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .stage-offering-card {
     min-height: auto;
@@ -241,7 +295,7 @@
 
 @media (max-width: 680px) {
   .milestone-grid,
-  .engagement-grid,
+  .engagement-spectrum,
   .technology-landscape__grid {
     grid-template-columns: 1fr;
   }
@@ -252,7 +306,6 @@
     min-height: 300px;
   }
   .milestone-card,
-  .engagement-card,
   .enabler-card,
   .technology-group {
     min-height: auto;
