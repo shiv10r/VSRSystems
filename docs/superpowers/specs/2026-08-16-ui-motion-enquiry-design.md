@@ -13,6 +13,8 @@ Improve the site's visual credibility and interaction quality, make animations r
 - Present `https://vsrsystems1.netlify.app/` as a current VSR-owned website project.
 - Label all service-based project scenarios as representative solutions; do not present them as completed client work or testimonials.
 - Harden the current Netlify website with restrictive browser security headers and bounded contact inputs.
+- Adapt the sample site's storytelling structure with truthful VSR metrics, general-business offerings, engagement models, strategic enablers, and verified technology capabilities.
+- Do not copy Quadrafort customer counts, team size, certifications, GCC claims, talent-pool claims, office locations, vendor relationships, or client results.
 - Open `/contact` in the same browser tab from every "Let's Talk" action.
 - Accept any non-empty challenge message. Do not enforce the current 20-character minimum.
 - Respect `prefers-reduced-motion` and keep mobile motion lightweight.
@@ -60,6 +62,45 @@ Acceptance criteria:
 - Every representative solution links to its matching service offering.
 - Visitors cannot reasonably mistake representative scenarios for verified testimonials.
 - Cards remain readable and usable without hover or animation.
+
+### P1: Add Milestones and Animated Service Network
+
+- [ ] Add a "Watch our story" section using only verifiable site facts: six service disciplines, one current live project, seven current/representative solution patterns, and secure-by-design delivery.
+- [ ] Add an animated network connecting Software, AI, Cloud, Data, Security, and Consulting to a central VSR node.
+- [ ] Animate only transform and opacity for moving packets and preserve a static, complete network under reduced motion.
+- [ ] Describe the metrics as current delivery signals rather than customers, employees, certifications, offices, or global reach.
+
+Acceptance criteria:
+
+- Every displayed number can be traced to current site content.
+- The visualization cannot reasonably be mistaken for a customer-location map.
+- The section remains readable at mobile widths and with animation disabled.
+
+### P1: Add Business Offerings and Engagement Models
+
+- [ ] Add Launch, Scale, and Transform offerings for businesses generally rather than GCC-specific claims.
+- [ ] Map each stage to VSR's existing software, AI, cloud, data, security, and consulting capabilities.
+- [ ] Add Discovery sprint, Defined project, Dedicated engineering team, Managed delivery, Co-development, and Outcome-based program engagement models.
+- [ ] Add Rapid MVP, Platform foundation, and Data and AI enablement strategic enablers.
+- [ ] Avoid claims about trained talent benches, foreign-culture training, matrix expertise, offshore centers, or Build-Operate-Transfer delivery.
+
+Acceptance criteria:
+
+- Offerings are framed as VSR delivery options without copying the sample site's organization-specific claims.
+- Each model explains the type of work it fits without promising unsupported outcomes.
+- All lists remain accessible and understandable without animation.
+
+### P1: Add Verified Technology Landscape
+
+- [ ] Group technologies under Application engineering, AI and automation, Cloud and delivery, Data and analytics, Security and identity, and Strategy and architecture.
+- [ ] Include only technologies and practices already present in VSR's service catalogue.
+- [ ] State that inclusion represents delivery capability, not vendor partnership or certification.
+- [ ] Replace the ungrouped technology marquee with the structured landscape to avoid duplicate content.
+
+Acceptance criteria:
+
+- No unsupported Salesforce, SAP, ServiceNow, Oracle, Freshworks, Monday.com, Liferay, CMS, QA-tool, or security-vendor capability is introduced.
+- Technology groups are responsive, keyboard-readable, and visually consistent with the VSR design system.
 
 ### P0: Repair Enquiry Submission
 
