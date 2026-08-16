@@ -45,22 +45,22 @@ export const milestones = [
   {
     value: "06",
     label: "Service disciplines",
-    description: "Software, AI, cloud, data, cybersecurity and technology consulting.",
+    description: "Software, AI, cloud, data, security, consulting.",
   },
   {
     value: "01",
     label: "Current live project",
-    description: "The VSR Systems corporate platform is live on Netlify and actively evolving.",
+    description: "VSR Systems corporate platform, live on Netlify.",
   },
   {
     value: "07",
     label: "Solution patterns",
-    description: "One current owned project and six representative business solution patterns.",
+    description: "One owned project, six solution patterns.",
   },
   {
     value: "Secure",
     label: "By design",
-    description: "Security controls are integrated into architecture, delivery and operations.",
+    description: "Security integrated into delivery and operations.",
   },
 ] satisfies readonly Milestone[]
 
@@ -76,84 +76,59 @@ export const serviceNodes = [
 export const stageOfferings = [
   {
     stage: "Launch",
-    title: "Foundation and validation",
-    description:
-      "Turn an opportunity into a secure, testable foundation with clear priorities and delivery boundaries.",
+    title: "Foundation & validation",
+    description: "Secure, testable foundation with clear priorities.",
     capabilities: [
-      "Product discovery and architecture",
-      "Rapid MVP and prototype delivery",
-      "Cloud and security foundations",
-      "Initial data and integration design",
+      "Discovery & architecture",
+      "Rapid MVP",
+      "Cloud & security foundations",
+      "Data & integration design",
     ],
   },
   {
     stage: "Scale",
-    title: "Growth and optimization",
-    description:
-      "Strengthen a working product with automation, dependable data and repeatable production delivery.",
+    title: "Growth & optimization",
+    description: "Automation, data and repeatable delivery.",
     capabilities: [
-      "Application and API development",
-      "CI/CD and platform automation",
-      "Data pipelines and analytics",
-      "Reliability and security controls",
+      "App & API development",
+      "CI/CD & platform automation",
+      "Data pipelines & analytics",
+      "Reliability & security",
     ],
   },
   {
     stage: "Transform",
-    title: "Modernization and innovation",
-    description:
-      "Modernize complex systems and operating models through an accountable, risk-aware program.",
+    title: "Modernization & innovation",
+    description: "Accountable, risk-aware transformation programs.",
     capabilities: [
-      "Enterprise modernization roadmaps",
-      "AI and intelligent automation",
-      "Platform and integration strategy",
-      "Advanced cloud and security posture",
+      "Modernization roadmaps",
+      "AI & intelligent automation",
+      "Platform & integration strategy",
+      "Advanced cloud & security",
     ],
   },
 ] satisfies readonly StageOffering[]
 
 export const engagementModels = [
-  {
-    title: "Discovery sprint",
-    fit: "Unclear scope, architecture decisions and investment validation",
-  },
-  { title: "Defined project", fit: "Known outcomes, bounded delivery and predictable milestones" },
-  {
-    title: "Dedicated engineering team",
-    fit: "Long-term product development and continuous improvement",
-  },
-  {
-    title: "Managed delivery",
-    fit: "Ongoing support, cloud operations, reliability and security work",
-  },
-  {
-    title: "Co-development",
-    fit: "Shared product ownership with internal business and engineering teams",
-  },
-  {
-    title: "Outcome-based program",
-    fit: "Multi-phase modernization tied to measurable business outcomes",
-  },
+  { title: "Discovery sprint", fit: "Validate scope and investment" },
+  { title: "Defined project", fit: "Bounded delivery, known outcomes" },
+  { title: "Dedicated team", fit: "Long-term product development" },
+  { title: "Managed delivery", fit: "Support, operations, reliability" },
+  { title: "Co-development", fit: "Shared product ownership" },
+  { title: "Outcome-based program", fit: "Multi-phase modernization" },
 ] satisfies readonly EngagementModel[]
 
 export const strategicEnablers = [
-  {
-    code: "R-MVP",
-    title: "Rapid minimum viable product",
-    description:
-      "A focused validation path that delivers the smallest useful product, gathers evidence and reduces investment risk.",
-  },
+  { code: "R-MVP", title: "Rapid MVP", description: "Smallest useful product, real evidence." },
   {
     code: "PF",
     title: "Platform foundation",
-    description:
-      "Reusable application, cloud, delivery and security foundations that help teams ship consistently as demand grows.",
+    description: "Reusable foundations for consistent delivery.",
   },
   {
     code: "DAE",
-    title: "Data and AI enablement",
-    description:
-      "Governed data, evaluation patterns and workflow integration that move AI from experiments into useful operations.",
+    title: "Data & AI enablement",
+    description: "Governed data and AI that reach production.",
   },
 ] satisfies readonly StrategicEnabler[]
 
@@ -201,29 +176,29 @@ export const operatingModel = [
   {
     phase: "01",
     title: "Discover",
-    input: "Business goals, users, current systems, constraints and risk appetite.",
-    output: "Prioritized scope, opportunity map, assumptions and delivery risks.",
-    controls: ["Stakeholder alignment", "Feasibility review", "Decision checkpoints"],
+    input: "Goals, users, constraints",
+    output: "Scope, risks, plan",
+    controls: ["Alignment", "Feasibility", "Checkpoints"],
   },
   {
     phase: "02",
     title: "Design",
-    input: "Validated priorities, data boundaries, integration needs and operating context.",
-    output: "Solution architecture, experience flows, delivery plan and security model.",
-    controls: ["Architecture review", "Threat modelling", "Acceptance criteria"],
+    input: "Priorities, boundaries",
+    output: "Architecture, security model",
+    controls: ["Review", "Threat model", "Criteria"],
   },
   {
     phase: "03",
     title: "Build",
-    input: "Approved architecture, sequenced outcomes and a ready delivery foundation.",
-    output: "Working increments, automated delivery, telemetry and production documentation.",
-    controls: ["Code quality gates", "Release controls", "Security checks"],
+    input: "Approved architecture",
+    output: "Increments, telemetry, docs",
+    controls: ["Quality gates", "Releases", "Security"],
   },
   {
     phase: "04",
     title: "Operate",
-    input: "Production signals, user feedback, service health and evolving business priorities.",
-    output: "Reliability improvements, optimized cost, risk reduction and product learning.",
-    controls: ["Observability", "Incident learning", "Continuous improvement"],
+    input: "Signals, feedback",
+    output: "Reliability, learning",
+    controls: ["Observability", "Incidents", "Improvement"],
   },
 ] satisfies readonly OperatingStep[]

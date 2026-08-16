@@ -4,124 +4,51 @@ export type ContentCard = {
 }
 
 export const capabilities = [
-  {
-    title: "Modern Engineering",
-    description:
-      "API-first systems, clean boundaries and scalable delivery built for continuous change.",
-  },
-  {
-    title: "AI Ready",
-    description:
-      "Practical integrations designed around real workflows, evidence and measurable outcomes.",
-  },
-  {
-    title: "Secure by Design",
-    description:
-      "Identity, authorization, secrets and production controls considered from the start.",
-  },
-  {
-    title: "Delivery Focused",
-    description: "Clear scope, incremental releases, observability and maintainable handover.",
-  },
+  { title: "Modern Engineering", description: "API-first systems built for continuous change." },
+  { title: "AI Ready", description: "Integrations around real workflows and evidence." },
+  { title: "Secure by Design", description: "Identity, secrets and controls from the start." },
+  { title: "Delivery Focused", description: "Incremental releases and maintainable handover." },
 ] satisfies readonly ContentCard[]
 
 export const differentiators = [
-  {
-    title: "Modern Architecture",
-    description: "Boundaries that make systems easier to evolve, test and operate.",
-  },
-  {
-    title: "Product Engineering",
-    description: "Technical decisions tied directly to user and business outcomes.",
-  },
-  {
-    title: "AI-Enabled Delivery",
-    description: "Automation used selectively where it improves quality and throughput.",
-  },
-  {
-    title: "Cloud Native",
-    description: "Repeatable environments, delivery pipelines and operational visibility.",
-  },
-  {
-    title: "Security First",
-    description: "Practical controls integrated across product and platform delivery.",
-  },
-  {
-    title: "Outcome Focus",
-    description: "Small expert teams, clear ownership and fast evidence-based feedback.",
-  },
+  { title: "Modern Architecture", description: "Systems that are easy to evolve and operate." },
+  { title: "Product Engineering", description: "Decisions tied to user and business outcomes." },
+  { title: "AI-Enabled Delivery", description: "Automation where it improves quality and speed." },
+  { title: "Cloud Native", description: "Repeatable environments and delivery pipelines." },
+  { title: "Security First", description: "Practical controls across product and platform." },
+  { title: "Outcome Focus", description: "Small teams, clear ownership, fast feedback." },
 ] satisfies readonly ContentCard[]
 
 export const industries = [
-  {
-    title: "Healthcare",
-    description:
-      "Secure digital workflows and connected information designed around sensitive operations.",
-  },
-  {
-    title: "Financial Services",
-    description:
-      "Resilient platforms, automation and data systems where trust and auditability matter.",
-  },
-  {
-    title: "Retail & E-commerce",
-    description:
-      "Composable commerce, customer experiences and operational intelligence for growth.",
-  },
-  {
-    title: "Manufacturing",
-    description:
-      "Connected operations, workflow automation and data visibility across the value chain.",
-  },
-  {
-    title: "Travel & Hospitality",
-    description: "Reliable booking, service and operations platforms built for changing demand.",
-  },
-  {
-    title: "Transportation & Logistics",
-    description: "Real-time workflows, integration and analytics for complex movement networks.",
-  },
+  { title: "Healthcare", description: "Secure workflows for sensitive operations." },
+  { title: "Financial Services", description: "Platforms where trust and auditability matter." },
+  { title: "Retail & E-commerce", description: "Composable commerce and customer experiences." },
+  { title: "Manufacturing", description: "Connected operations and workflow automation." },
+  { title: "Travel & Hospitality", description: "Reliable booking and service platforms." },
+  { title: "Transportation & Logistics", description: "Real-time workflows for complex networks." },
 ] satisfies readonly ContentCard[]
 
 export const deliverySteps = [
-  {
-    title: "Discover",
-    description: "Understand the business problem, users, constraints and desired outcome.",
-  },
-  {
-    title: "Define",
-    description: "Create scope, architecture, backlog, success measures and delivery plan.",
-  },
-  { title: "Design", description: "Prototype experience, systems, APIs, data and integrations." },
-  {
-    title: "Build",
-    description: "Develop iteratively with review, automation and clear production standards.",
-  },
-  {
-    title: "Launch",
-    description: "Deploy safely with observability, monitoring and operational readiness.",
-  },
-  {
-    title: "Improve",
-    description: "Measure, optimize, automate and evolve the platform continuously.",
-  },
+  { title: "Discover", description: "Problem, users, constraints, outcome." },
+  { title: "Define", description: "Scope, architecture, backlog, measures." },
+  { title: "Design", description: "Experience, systems, APIs, data." },
+  { title: "Build", description: "Iterative development, automated standards." },
+  { title: "Launch", description: "Safe deployment, monitoring, readiness." },
+  { title: "Improve", description: "Measure, optimize, evolve continuously." },
 ] satisfies readonly ContentCard[]
 
 export const insights = [
   {
     title: "Building AI features without creating an AI maintenance problem",
-    description:
-      "A practical framework for grounding AI work in evaluation, ownership and reliable product behavior.",
+    description: "Ground AI work in evaluation, ownership and reliable behavior.",
   },
   {
     title: "When should an enterprise modernize instead of rewrite?",
-    description:
-      "How to compare risk, economics and delivery speed before choosing a transformation path.",
+    description: "Compare risk, economics and delivery speed first.",
   },
   {
     title: "A practical cloud migration checklist for growing software products",
-    description:
-      "The architecture, operations and team questions that should be answered before moving.",
+    description: "Architecture, operations and team questions to answer before moving.",
   },
 ] satisfies readonly ContentCard[]
 
