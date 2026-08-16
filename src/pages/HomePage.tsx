@@ -14,6 +14,7 @@ import {
   InsightsPreview,
   TechnologyMarquee,
 } from "../components/home/HomeSecondary"
+import { ProjectsFeed } from "../components/home/ProjectsFeed"
 import { PageMeta } from "../components/shared/PageMeta"
 
 export const HomePage = () => (
@@ -32,6 +33,7 @@ export const HomePage = () => (
     <TechnologyMarquee />
     <IndustriesGrid />
     <DeliveryProcess />
+    <ProjectsFeed />
     <InsightsPreview />
     <FinalCta />
   </>
