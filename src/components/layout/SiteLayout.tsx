@@ -1,6 +1,5 @@
-import { Mail } from "lucide-react"
-import { Outlet, useLocation } from "react-router-dom"
-import { siteConfig } from "../../data/site"
+import { MessageCircle } from "lucide-react"
+import { Link, Outlet, useLocation } from "react-router-dom"
 import { Footer } from "./Footer"
 import { Header } from "./Header"
 import { ScrollToTop } from "./ScrollToTop"
@@ -19,14 +18,14 @@ export const SiteLayout = () => {
         <Outlet />
       </main>
       <Footer />
-      <a
+      <Link
         className="floating-contact"
-        href={`mailto:${siteConfig.email}`}
-        aria-label="Email VSR Systems"
+        to="/contact"
+        aria-label="Open the VSR Systems contact form"
       >
-        <Mail aria-hidden="true" size={19} />
+        <MessageCircle aria-hidden="true" size={19} />
         <span>Let's Talk</span>
-      </a>
+      </Link>
     </div>
   )
 }

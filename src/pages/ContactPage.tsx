@@ -1,9 +1,8 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Mail } from "lucide-react"
 import type { ReactNode } from "react"
-import { useRef } from "react"
+import { useState } from "react"
 import { useForm } from "react-hook-form"
-import { useSearchParams } from "react-router-dom"
 import { z } from "zod"
 import { PageMeta } from "../components/shared/PageMeta"
 import { RouteHero } from "../components/shared/RouteHero"
@@ -17,22 +16,59 @@ const contactSchema = z.object({
   phone: z.string().trim(),
   service: z.string().min(1, "Select a service"),
   budget: z.string(),
-  message: z.string().trim().min(20, "Tell us a little more about the challenge"),
+  message: z.string().trim().min(1, "Tell us about the challenge"),
   consent: z.literal(true, { error: "Confirm that we may respond to your inquiry" }),
+  "bot-field": z.string().optional(),
 })
 
 type ContactFields = z.infer<typeof contactSchema>
+type SubmissionStatus = "idle" | "success" | "error"
 
 export const ContactPage = () => {
-  const formRef = useRef<HTMLFormElement>(null)
-  const [searchParams] = useSearchParams()
-  const submitted = searchParams.get("submitted") === "true"
+  const [submissionStatus, setSubmissionStatus] = useState<SubmissionStatus>("idle")
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors, isSubmitting },
   } = useForm<ContactFields>({ resolver: zodResolver(contactSchema) })
-  const submitValidatedForm = () => formRef.current?.submit()
+  const submitValidatedForm = async (fields: ContactFields) => {
+    setSubmissionStatus("idle")
+    const body = new URLSearchParams({
+      "form-name": "contact",
+      fullName: fields.fullName,
+      email: fields.email,
+      company: fields.company,
+      phone: fields.phone,
+      service: fields.service,
+      budget: fields.budget,
+      message: fields.message,
+      consent: fields.consent ? "yes" : "no",
+      "bot-field": fields["bot-field"] ?? "",
+    })
+
+    try {
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body,
+      })
+
+      if (!response.ok) {
+        setSubmissionStatus("error")
+        return
+      }
+
+      reset()
+      setSubmissionStatus("success")
+    } catch (error) {
+      if (error instanceof TypeError) {
+        setSubmissionStatus("error")
+        return
+      }
+      throw error
+    }
+  }
 
   return (
     <>
@@ -60,7 +96,7 @@ export const ContactPage = () => {
             </a>
           </aside>
           <div className="contact-form-wrap surface">
-            {submitted ? (
+            {submissionStatus === "success" ? (
               <div className="form-success" role="status">
                 <h2>Message received.</h2>
                 <p>
@@ -69,12 +105,17 @@ export const ContactPage = () => {
                 </p>
               </div>
             ) : null}
+            {submissionStatus === "error" ? (
+              <div className="form-error" role="alert">
+                <h2>Message not sent.</h2>
+                <p>Please check your connection and try again. Your details are still here.</p>
+              </div>
+            ) : null}
             <form
-              ref={formRef}
               className="contact-form"
               name="contact"
               method="POST"
-              action="/contact?submitted=true"
+              action="/"
               data-netlify="true"
               data-netlify-honeypot="bot-field"
               onSubmit={handleSubmit(submitValidatedForm)}
@@ -83,7 +124,7 @@ export const ContactPage = () => {
               <input type="hidden" name="form-name" value="contact" />
               <p className="hidden-field">
                 <label>
-                  Do not fill this out: <input name="bot-field" />
+                  Do not fill this out: <input {...register("bot-field")} />
                 </label>
               </p>
               <Field id="fullName" label="Full name" error={errors.fullName?.message}>
@@ -129,7 +170,7 @@ export const ContactPage = () => {
                 </Field>
               </div>
               <Field id="message" label="Message" error={errors.message?.message}>
-                <textarea id="message" {...register("message")} rows={6} />
+                <textarea id="message" {...register("message")} rows={8} />
               </Field>
               <label className="consent">
                 <input {...register("consent")} type="checkbox" />
