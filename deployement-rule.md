@@ -38,5 +38,18 @@ u have  full access to to this file path only  no harm should happen to my d evi
 - Do not launch the application locally, run local browser checks, or run tests. The user will perform runtime testing.
 - Keep agent communication and tool usage concise and implementation-focused to avoid wasting time or tokens.
 
+## Session Correction Rules
+
+- For a clear, scoped task, perform one brief context pass and start editing immediately. Do not create a design document, implementation plan, research task, or subagent delegation unless the user requests one or a missing architectural decision genuinely blocks coding.
+- Before the first edit on a small task, use no more than two repository lookup calls. Read only the named file and its direct dependency or caller when needed.
+- Do not repeatedly announce plans, skills, or intended tool usage. Prefer a short statement of the edit being made, then show concrete progress.
+- Ask a clarifying question only when the missing answer would materially change the implementation. Do not ask for confirmation when the user has already given a clear implementation instruction.
+- If a delegated task or tool approach aborts or fails, retry that approach at most once. After the second failure, stop delegating and implement the scoped change directly with the available local tools.
+- Break larger work into coding chunks that each end with an edit and an approved static check. Do not spend multiple turns mapping the whole project before completing the first chunk.
+- For external products, pricing, quotas, or account features, verify the current official documentation and the user's actual dashboard evidence before making a claim. Never describe a feature as free or available when the user's account shows an upgrade gate.
+- Distinguish source-code completion from deployed behavior. Do not claim a hosted integration works until it has been deployed and verified; clearly name any owner-only dashboard step that remains.
+- When the user corrects the process, apply the correction directly and concisely. Do not respond with performative agreement or repeat the same workflow that caused the complaint.
+- After implementation, run only the repository-approved static checks, create focused commits, push the configured branch, and report the commit and push result without unnecessary recap.
+
 u cant spend so much time in single taks like architecture planning or anything u have t ostart wroking and planning and plotting all together split  task in small chuks wokr untill its completed
 
