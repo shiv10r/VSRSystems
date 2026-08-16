@@ -15,6 +15,7 @@ import {
   InsightsPreview,
 } from "../components/home/HomeSecondary"
 import { MilestonesStory } from "../components/home/MilestonesStory"
+import { OperatingModel } from "../components/home/OperatingModel"
 import { ProjectsFeed } from "../components/home/ProjectsFeed"
 import { TechnologyLandscape } from "../components/home/TechnologyLandscape"
 import { PageMeta } from "../components/shared/PageMeta"
@@ -30,6 +31,7 @@ export const HomePage = () => (
     <MilestonesStory />
     <ServicesGrid />
     <BusinessOfferings />
+    <OperatingModel />
     <StoryPanel />
     <CapabilityCards />
     <Advantage />
