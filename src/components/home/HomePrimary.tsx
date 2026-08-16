@@ -1,4 +1,12 @@
-import { ArrowUpRight, Check } from "lucide-react"
+import {
+  ArrowUpRight,
+  Cloud as CloudIcon,
+  Cpu as CpuIcon,
+  MessageSquare as MessageSquareIcon,
+  ShieldCheck as ShieldCheckIcon,
+  Target as TargetIcon,
+  TrendingUp as TrendingUpIcon,
+} from "lucide-react"
 import { Link } from "react-router-dom"
 import { capabilities } from "../../data/content"
 import { services } from "../../data/services"
@@ -22,9 +30,8 @@ export const Intro = () => (
       </Reveal>
       <Reveal delay={0.08}>
         <p>
-          VSR Systems helps organizations turn complex technology challenges into practical,
-          scalable solutions. From application modernization and cloud platforms to AI automation
-          and data engineering, we combine consulting discipline with hands-on product engineering.
+          Complex technology challenges, turned into practical, scalable solutions — from strategy
+          to production.
         </p>
       </Reveal>
     </div>
@@ -76,10 +83,7 @@ export const StoryPanel = () => (
         <div className="story-panel__content">
           <p className="eyebrow">VSR Systems</p>
           <h2>Technology that moves business forward</h2>
-          <p>
-            From an ambitious idea to dependable software, we connect strategy, engineering and
-            operations into one accountable delivery path.
-          </p>
+          <p>Strategy, engineering and operations — one accountable delivery path.</p>
           <ButtonLink href="/company" variant="secondary" icon>
             Our approach
           </ButtonLink>
@@ -111,13 +115,27 @@ export const CapabilityCards = () => (
 )
 
 const advantagePoints = [
-  "Senior engineering mindset",
-  "Product-first execution",
-  "Cloud and automation by default",
-  "Secure and maintainable architecture",
-  "Transparent communication",
-  "Outcome-focused delivery",
+  { icon: "Cpu", label: "Senior engineering" },
+  { icon: "Target", label: "Product-first" },
+  { icon: "Cloud", label: "Cloud by default" },
+  { icon: "ShieldCheck", label: "Secure architecture" },
+  { icon: "MessageSquare", label: "Clear communication" },
+  { icon: "TrendingUp", label: "Outcome-focused" },
 ] as const
+
+const ADVANTAGE_ICONS = {
+  Cpu: CpuIcon,
+  Target: TargetIcon,
+  Cloud: CloudIcon,
+  ShieldCheck: ShieldCheckIcon,
+  MessageSquare: MessageSquareIcon,
+  TrendingUp: TrendingUpIcon,
+} as const
+
+function Icon({ name, size }: { name: keyof typeof ADVANTAGE_ICONS; size: number }) {
+  const IconComponent = ADVANTAGE_ICONS[name]
+  return <IconComponent size={size} />
+}
 
 export const Advantage = () => (
   <section className="section advantage" id="advantage">
@@ -131,10 +149,8 @@ export const Advantage = () => (
           <br />
           <span className="gradient-text">Fast evidence.</span>
         </h2>
-        <p>
-          Large transformation programs slow down when technology, delivery and business priorities
-          are treated separately. VSR Systems works as one accountable engineering partner from
-          prototype to production.
+        <p className="advantage__lede">
+          One accountable engineering partner from prototype to production.
         </p>
         <ButtonLink href="/company" variant="secondary" icon>
           Why VSR Systems
@@ -146,11 +162,11 @@ export const Advantage = () => (
           <span>ENGINEER</span>
           <span>OPERATE</span>
         </div>
-        <ul>
+        <ul className="advantage__tiles">
           {advantagePoints.map((point) => (
-            <li key={point}>
-              <Check aria-hidden="true" size={18} />
-              {point}
+            <li className="advantage-tile" key={point.label}>
+              <Icon name={point.icon} size={18} />
+              <span>{point.label}</span>
             </li>
           ))}
         </ul>

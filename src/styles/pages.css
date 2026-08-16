@@ -246,20 +246,31 @@
 .advantage__diagram span:last-child {
   border-color: rgba(237, 95, 169, 0.32);
 }
-.advantage ul {
+.advantage__lede {
+  max-width: 560px;
+}
+.advantage__tiles {
   display: grid;
-  gap: 14px;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
   margin: 0;
   padding: 0;
   list-style: none;
 }
-.advantage li {
+.advantage-tile {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
+  min-height: 52px;
+  padding: 0 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.02);
   color: var(--text-muted);
+  font-size: 0.92rem;
 }
-.advantage li svg {
+.advantage-tile svg {
+  flex: 0 0 auto;
   color: var(--cyan);
 }
 
