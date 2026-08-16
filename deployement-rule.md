@@ -40,6 +40,8 @@ u have  full access to to this file path only  no harm should happen to my d evi
 
 ## Session Correction Rules
 
+- For an explicit `add`, `change`, `fix`, or `implement` request, begin editing in the same response after at most one focused context lookup. Do not block coding on brainstorming, design approval, plan writing, external research, or subagent execution unless the user explicitly requested that workflow.
+- If a delegated implementation aborts twice, implement directly immediately. Do not launch another delegate for the same work.
 - For a clear, scoped task, perform one brief context pass and start editing immediately. Do not create a design document, implementation plan, research task, or subagent delegation unless the user requests one or a missing architectural decision genuinely blocks coding.
 - Before the first edit on a small task, use no more than two repository lookup calls. Read only the named file and its direct dependency or caller when needed.
 - Do not repeatedly announce plans, skills, or intended tool usage. Prefer a short statement of the edit being made, then show concrete progress.
