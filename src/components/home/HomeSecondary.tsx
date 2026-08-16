@@ -1,4 +1,12 @@
-import { ArrowUpRight } from "lucide-react"
+import {
+  ArrowUpRight,
+  Code2 as Code2Icon,
+  PenTool as PenToolIcon,
+  Rocket as RocketIcon,
+  Search as SearchIcon,
+  Target as TargetIcon,
+  TrendingUp as TrendingUpIcon,
+} from "lucide-react"
 import { Link } from "react-router-dom"
 import {
   deliverySteps,
@@ -85,24 +93,36 @@ export const IndustriesGrid = () => (
   </section>
 )
 
+const processIcons = [SearchIcon, TargetIcon, PenToolIcon, Code2Icon, RocketIcon, TrendingUpIcon]
+
 export const DeliveryProcess = () => (
   <section className="section process-section">
     <div className="container">
       <SectionHeading
         eyebrow="Delivery"
         title="From idea to production"
-        description="A clear path that reduces uncertainty early and keeps learning connected to delivery."
+        description="A clear path that reduces uncertainty early."
       />
-      <ol className="process-list">
-        {deliverySteps.map((step, index) => (
-          <li key={step.title}>
-            <span>{String(index + 1).padStart(2, "0")}</span>
-            <div>
-              <h3>{step.title}</h3>
-              <p>{step.description}</p>
-            </div>
-          </li>
-        ))}
+      <ol className="process-stepper">
+        {deliverySteps.map((step, index) => {
+          const StepIcon = processIcons[index] ?? SearchIcon
+          return (
+            <Reveal key={step.title} delay={index * 0.06}>
+              <li className="process-stepper__step">
+                <span className="process-stepper__node" aria-hidden="true">
+                  <StepIcon size={20} />
+                </span>
+                <div className="process-stepper__body">
+                  <span className="process-stepper__index">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <h3>{step.title}</h3>
+                  <p>{step.description}</p>
+                </div>
+              </li>
+            </Reveal>
+          )
+        })}
       </ol>
     </div>
   </section>
