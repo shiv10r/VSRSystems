@@ -56,7 +56,7 @@ Explain the same content with graphs/charts instead of paragraphs, cut visible w
 - `src/components/home/OperatingModel.tsx` — rewrite
 - `src/components/home/HomeSecondary.tsx` — DeliveryProcess rewrite
 - `src/components/home/BusinessOfferings.tsx` — rewrite
-- `src/components/home/HomePrimary.tsx` — Advantage rewrite
+- `src/components/home/HomePrimary.tsx` — Advantage rewrite; Intro + StoryPanel copy trims (these sections live in this file)
 - `src/styles/operations.css`, `story.css`, `pages.css` — chart styles
 
 ## Constraints
