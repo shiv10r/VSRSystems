@@ -70,7 +70,9 @@
   );
   animation-delay: -3s;
 }
-.section-heading h2 {
+.section-heading__word {
+  display: inline-block;
+  margin-right: 0.26em;
   background: linear-gradient(100deg, var(--text) 20%, #b9f6ff 48%, var(--text) 76%);
   background-size: 220% auto;
   color: transparent;
@@ -105,6 +107,23 @@
 .project-card {
   position: relative;
   overflow: hidden;
+}
+.content-card,
+.differentiator-card,
+.technology-group,
+.stage-offering-card {
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition:
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+.content-card:hover,
+.differentiator-card:hover,
+.technology-group:hover,
+.stage-offering-card:hover {
+  border-color: rgba(55, 217, 243, 0.4);
+  box-shadow: 0 18px 50px -18px rgba(55, 217, 243, 0.28);
 }
 .content-card::before,
 .stage-offering-card::before,
@@ -181,7 +200,7 @@
 @media (prefers-reduced-motion: reduce) {
   .section::before,
   .section::after,
-  .section-heading h2,
+  .section-heading__word,
   .route-hero__signals path,
   .content-card::before,
   .stage-offering-card::before,

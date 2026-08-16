@@ -6,6 +6,7 @@ import { ButtonLink } from "../shared/Button"
 import { Reveal } from "../shared/Reveal"
 import { SectionHeading } from "../shared/SectionHeading"
 import { ServiceIcon } from "../shared/ServiceIcon"
+import { TiltCard } from "../shared/TiltCard"
 
 export const Intro = () => (
   <section className="section intro" id="intro">
@@ -41,7 +42,7 @@ export const ServicesGrid = () => (
       <div className="card-grid">
         {services.map((service, index) => (
           <Reveal key={service.slug} delay={(index % 3) * 0.05}>
-            <article className="content-card service-card">
+            <TiltCard className="content-card service-card">
               <div className="content-card__icon">
                 <ServiceIcon name={service.icon} />
               </div>
@@ -53,7 +54,7 @@ export const ServicesGrid = () => (
                 to={`/services/${service.slug}`}
                 aria-label={`Explore ${service.title}`}
               />
-            </article>
+            </TiltCard>
           </Reveal>
         ))}
       </div>

@@ -256,6 +256,9 @@
   width: max-content;
   animation: marquee 36s linear infinite;
 }
+.marquee--fast .marquee__track {
+  animation-duration: 18s;
+}
 .marquee:hover .marquee__track,
 .marquee:focus-within .marquee__track {
   animation-play-state: paused;

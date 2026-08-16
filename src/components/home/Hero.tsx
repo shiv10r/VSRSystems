@@ -1,17 +1,28 @@
-import { motion, useReducedMotion } from "framer-motion"
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion"
 import { ArrowDown } from "lucide-react"
+import { useRef } from "react"
 import { ButtonLink } from "../shared/Button"
 import { OrbitArtwork } from "../shared/OrbitArtwork"
 
 export const Hero = () => {
   const reduceMotion = useReducedMotion()
+  const heroRef = useRef<HTMLElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  })
+  const artY = useTransform(scrollYProgress, [0, 1], [0, 140])
+  const copyY = useTransform(scrollYProgress, [0, 1], [0, -70])
+  const copyOpacity = useTransform(scrollYProgress, [0, 0.65], [1, 0.15])
+  const copyStyle = reduceMotion ? {} : { y: copyY, opacity: copyOpacity }
+  const artStyle = reduceMotion ? {} : { y: artY }
   const initial = reduceMotion ? false : { opacity: 0, y: 24 }
 
   return (
-    <section className="hero">
+    <section className="hero" ref={heroRef}>
       <div className="hero__grid" aria-hidden="true" />
       <div className="container hero__inner">
-        <div className="hero__copy">
+        <motion.div className="hero__copy" style={copyStyle}>
           <motion.p
             className="eyebrow"
             initial={initial}
@@ -50,14 +61,24 @@ export const Hero = () => {
               Explore Services
             </ButtonLink>
           </motion.div>
-        </div>
+        </motion.div>
         <motion.div
           className="hero__art"
           initial={reduceMotion ? false : { opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.18 }}
+          style={artStyle}
         >
-          <OrbitArtwork />
+          <motion.div
+            animate={reduceMotion ? false : { rotate: [0, 8, -8, 0], y: [0, -16, 0] }}
+            transition={{
+              duration: 12,
+              repeat: Number.POSITIVE_INFINITY,
+              ease: "easeInOut",
+            }}
+          >
+            <OrbitArtwork />
+          </motion.div>
         </motion.div>
       </div>
       <div className="container hero__strip">
@@ -67,9 +88,15 @@ export const Hero = () => {
         <i /> <span>Data</span>
         <i /> <span>Security</span>
       </div>
-      <a className="hero__scroll" href="#intro" aria-label="Scroll to introduction">
+      <motion.a
+        className="hero__scroll"
+        href="#intro"
+        aria-label="Scroll to introduction"
+        animate={reduceMotion ? false : { y: [0, 7, 0] }}
+        transition={{ duration: 1.8, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+      >
         <ArrowDown aria-hidden="true" size={18} />
-      </a>
+      </motion.a>
     </section>
   )
 }

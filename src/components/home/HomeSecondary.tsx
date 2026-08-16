@@ -11,6 +11,7 @@ import { siteConfig } from "../../data/site"
 import { ButtonLink } from "../shared/Button"
 import { Reveal } from "../shared/Reveal"
 import { SectionHeading } from "../shared/SectionHeading"
+import { TiltCard } from "../shared/TiltCard"
 
 export const Differentiators = () => (
   <section className="section differentiators">
@@ -19,11 +20,11 @@ export const Differentiators = () => (
       <div className="differentiator-grid">
         {differentiators.map((item, index) => (
           <Reveal key={item.title} delay={(index % 3) * 0.05}>
-            <article className="differentiator-card">
+            <TiltCard className="differentiator-card">
               <span>0{index + 1}</span>
               <h3>{item.title}</h3>
               <p>{item.description}</p>
-            </article>
+            </TiltCard>
           </Reveal>
         ))}
       </div>

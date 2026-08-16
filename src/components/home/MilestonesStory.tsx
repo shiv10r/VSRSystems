@@ -37,12 +37,16 @@ export const MilestonesStory = () => {
               <title id="service-network-title">VSR Systems connected service disciplines</title>
               {serviceNodes.map((node, index) => (
                 <g key={node.label}>
-                  <line
+                  <motion.line
                     className="service-network__line"
                     x1={networkCore.x}
                     y1={networkCore.y}
                     x2={node.x}
                     y2={node.y}
+                    initial={reduceMotion ? false : { pathLength: 0, opacity: 0 }}
+                    whileInView={{ pathLength: 1, opacity: 1 }}
+                    viewport={{ once: true, amount: 0.4 }}
+                    transition={{ duration: 1.4, delay: index * 0.12, ease: "easeInOut" }}
                   />
                   <motion.circle
                     className="service-network__packet"
@@ -66,7 +70,19 @@ export const MilestonesStory = () => {
                     }}
                   />
                   <g className="service-network__node" transform={`translate(${node.x} ${node.y})`}>
-                    <circle r="24" />
+                    <motion.circle
+                      r="24"
+                      animate={
+                        reduceMotion ? false : { scale: [1, 1.3, 1], opacity: [0.45, 1, 0.45] }
+                      }
+                      transition={{
+                        duration: 3,
+                        repeat: Number.POSITIVE_INFINITY,
+                        delay: index * 0.4,
+                        ease: "easeInOut",
+                      }}
+                      style={{ transformBox: "fill-box", transformOrigin: "center" }}
+                    />
                     <text y="44">{node.label}</text>
                   </g>
                 </g>
@@ -75,7 +91,16 @@ export const MilestonesStory = () => {
                 className="service-network__core"
                 transform={`translate(${networkCore.x} ${networkCore.y})`}
               >
-                <circle r="48" />
+                <motion.circle
+                  r="48"
+                  animate={reduceMotion ? false : { scale: [1, 1.16, 1], opacity: [0.55, 1, 0.55] }}
+                  transition={{
+                    duration: 3.4,
+                    repeat: Number.POSITIVE_INFINITY,
+                    ease: "easeInOut",
+                  }}
+                  style={{ transformBox: "fill-box", transformOrigin: "center" }}
+                />
                 <text y="4">VSR</text>
               </g>
             </svg>
