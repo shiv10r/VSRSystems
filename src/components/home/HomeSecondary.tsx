@@ -65,14 +65,16 @@ export const IndustriesGrid = () => (
       />
       <div className="industry-grid">
         {industries.map((industry, index) => (
-          <article className="industry-card" key={industry.title}>
-            <span>{String(index + 1).padStart(2, "0")}</span>
-            <div>
-              <h3>{industry.title}</h3>
-              <p>{industry.description}</p>
-            </div>
-            <ArrowUpRight className="industry-card__arrow" aria-hidden="true" size={20} />
-          </article>
+          <Reveal delay={(index % 4) * 0.05} key={industry.title}>
+            <Link className="industry-card" to="/industries">
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <div>
+                <h3>{industry.title}</h3>
+                <p>{industry.description}</p>
+              </div>
+              <ArrowUpRight className="industry-card__arrow" aria-hidden="true" size={20} />
+            </Link>
+          </Reveal>
         ))}
       </div>
       <ButtonLink href="/industries" variant="text" icon>
@@ -111,14 +113,16 @@ export const InsightsPreview = () => (
       <SectionHeading eyebrow="Insights" title="Practical thinking for complex technology work" />
       <div className="insight-grid">
         {insights.map((insight, index) => (
-          <article className="insight-card" key={insight.title}>
-            <span className="insight-card__type">Perspective / 0{index + 1}</span>
-            <h3>{insight.title}</h3>
-            <p>{insight.description}</p>
-            <Link to="/insights">
-              Read insight <ArrowUpRight aria-hidden="true" size={16} />
-            </Link>
-          </article>
+          <Reveal delay={(index % 3) * 0.06} key={insight.title}>
+            <article className="insight-card">
+              <span className="insight-card__type">Perspective / 0{index + 1}</span>
+              <h3>{insight.title}</h3>
+              <p>{insight.description}</p>
+              <Link to="/insights">
+                Read insight <ArrowUpRight aria-hidden="true" size={16} />
+              </Link>
+            </article>
+          </Reveal>
         ))}
       </div>
     </div>
