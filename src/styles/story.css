@@ -1,0 +1,260 @@
+.milestones-story {
+  background:
+    radial-gradient(circle at 76% 38%, rgba(75, 125, 248, 0.13), transparent 34%), var(--canvas);
+}
+.milestones-story__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(440px, 1.18fr);
+  align-items: stretch;
+  gap: 20px;
+}
+.milestone-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.milestone-card {
+  min-height: 240px;
+  height: 100%;
+  padding: 26px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.012));
+}
+.milestone-card > span {
+  display: block;
+  margin-bottom: 52px;
+  color: var(--cyan);
+  font-family: var(--font-mono);
+  font-size: clamp(2.2rem, 4vw, 4rem);
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+.milestone-card h3 {
+  font-size: 1.25rem;
+}
+.milestone-card p {
+  margin-bottom: 0;
+  font-size: 0.92rem;
+}
+.service-network {
+  min-width: 0;
+  padding: 30px;
+  overflow: hidden;
+  border-radius: 24px;
+}
+.service-network__heading h3 {
+  font-size: clamp(1.6rem, 3vw, 2.6rem);
+}
+.service-network svg {
+  width: 100%;
+  min-height: 360px;
+  margin-top: 12px;
+}
+.service-network__line {
+  stroke: rgba(255, 255, 255, 0.14);
+  stroke-width: 1.5;
+}
+.service-network__packet {
+  fill: var(--cyan);
+  filter: drop-shadow(0 0 8px var(--cyan));
+}
+.service-network__node circle {
+  fill: var(--surface-strong);
+  stroke: rgba(139, 109, 246, 0.55);
+  stroke-width: 1.5;
+}
+.service-network__node text {
+  fill: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  text-anchor: middle;
+}
+.service-network__core circle {
+  fill: rgba(55, 217, 243, 0.1);
+  stroke: var(--cyan);
+  stroke-width: 1.5;
+  filter: drop-shadow(0 0 24px rgba(55, 217, 243, 0.32));
+}
+.service-network__core text {
+  fill: var(--text);
+  font-family: var(--font-mono);
+  font-size: 18px;
+  font-weight: 650;
+  text-anchor: middle;
+}
+
+.stage-offerings {
+  background: var(--canvas-raised);
+}
+.stage-offerings__grid,
+.enabler-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+.stage-offering-card {
+  min-height: 510px;
+  height: 100%;
+  padding: 32px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--surface);
+}
+.stage-offering-card__index {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 72px;
+  color: var(--cyan);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+.stage-offering-card h3 {
+  font-size: clamp(1.55rem, 2.5vw, 2.25rem);
+}
+.stage-offering-card ul {
+  display: grid;
+  gap: 12px;
+  margin: 28px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.stage-offering-card li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--text-muted);
+}
+.stage-offering-card li svg {
+  flex: 0 0 auto;
+  margin-top: 5px;
+  color: var(--cyan);
+}
+
+.engagement-section {
+  background: var(--surface);
+}
+.engagement-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+}
+.engagement-card {
+  min-height: 230px;
+  padding: 28px;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.engagement-card > span,
+.enabler-card > span {
+  display: block;
+  margin-bottom: 52px;
+  color: var(--cyan);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.09em;
+}
+.engagement-card h3 {
+  font-size: 1.35rem;
+}
+.engagement-card p {
+  margin-bottom: 0;
+}
+
+.enablers-section {
+  background: radial-gradient(circle at 14% 38%, rgba(139, 109, 246, 0.1), transparent 30%);
+}
+.enabler-card {
+  min-height: 360px;
+  height: 100%;
+  padding: 32px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.012));
+}
+.enabler-card h3 {
+  font-size: 1.65rem;
+}
+.enabler-card p {
+  margin-bottom: 0;
+}
+
+.technology-landscape {
+  background: var(--canvas-raised);
+}
+.technology-landscape__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  border: 1px solid var(--border);
+  background: var(--border);
+}
+.technology-group {
+  min-height: 280px;
+  padding: 30px;
+  background: var(--canvas-raised);
+}
+.technology-group__heading {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 16px;
+  margin-bottom: 44px;
+}
+.technology-group__heading > span {
+  color: var(--cyan);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+}
+.technology-group h3 {
+  font-size: 1.4rem;
+}
+.technology-group__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.technology-group__list span {
+  padding: 8px 11px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+}
+
+@media (max-width: 1000px) {
+  .milestones-story__layout {
+    grid-template-columns: 1fr;
+  }
+  .stage-offerings__grid,
+  .enabler-grid {
+    grid-template-columns: 1fr;
+  }
+  .stage-offering-card {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 680px) {
+  .milestone-grid,
+  .engagement-grid,
+  .technology-landscape__grid {
+    grid-template-columns: 1fr;
+  }
+  .service-network {
+    padding: 20px 12px;
+  }
+  .service-network svg {
+    min-height: 300px;
+  }
+  .milestone-card,
+  .engagement-card,
+  .enabler-card,
+  .technology-group {
+    min-height: auto;
+  }
+}
