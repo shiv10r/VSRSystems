@@ -1,3 +1,4 @@
+import { BusinessOfferings } from "../components/home/BusinessOfferings"
 import { Hero } from "../components/home/Hero"
 import {
   Advantage,
@@ -12,9 +13,10 @@ import {
   FinalCta,
   IndustriesGrid,
   InsightsPreview,
-  TechnologyMarquee,
 } from "../components/home/HomeSecondary"
+import { MilestonesStory } from "../components/home/MilestonesStory"
 import { ProjectsFeed } from "../components/home/ProjectsFeed"
+import { TechnologyLandscape } from "../components/home/TechnologyLandscape"
 import { PageMeta } from "../components/shared/PageMeta"
 
 export const HomePage = () => (
@@ -25,12 +27,14 @@ export const HomePage = () => (
     />
     <Hero />
     <Intro />
+    <MilestonesStory />
     <ServicesGrid />
+    <BusinessOfferings />
     <StoryPanel />
     <CapabilityCards />
     <Advantage />
     <Differentiators />
-    <TechnologyMarquee />
+    <TechnologyLandscape />
     <IndustriesGrid />
     <DeliveryProcess />
     <ProjectsFeed />
