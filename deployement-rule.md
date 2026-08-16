@@ -24,6 +24,9 @@ u have  full access to to this file path only  no harm should happen to my d evi
 
 ## Development Execution Rule
 
+- Limit initial mapping, repository exploration, and planning to a few minutes. Once the relevant files and root cause are identified, stop mapping and begin implementation.
+- Break approved work into small, ordered coding chunks. Complete and statically verify each chunk before starting the next; do not delay implementation for exhaustive planning or repeated analysis.
+- After completed work passes the approved static checks, commit the intended changes and push the current branch to its configured remote unless the user explicitly says not to push. Never force-push or rewrite shared history.
 - Start implementation after the architecture and required safety decisions are clear.
 - Break the work into ordered phase bundles. Each phase must produce a coherent, buildable part of the project.
 - Resolve errors and blockers introduced in the current phase before moving to the next phase.
@@ -34,4 +37,6 @@ u have  full access to to this file path only  no harm should happen to my d evi
 - Build the complete approved project, not an MVP, demo, skeleton, or partial placeholder release.
 - Do not launch the application locally, run local browser checks, or run tests. The user will perform runtime testing.
 - Keep agent communication and tool usage concise and implementation-focused to avoid wasting time or tokens.
+
+u cant spend so much time in single taks like architecture planning or anything u have t ostart wroking and planning and plotting all together split  task in small chuks wokr untill its completed
 
